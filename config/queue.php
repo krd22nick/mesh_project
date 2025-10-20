@@ -85,6 +85,44 @@ return [
             ],
         ],
 
+//        'rabbitmq' => [
+//            'driver' => 'rabbitmq',
+//            'host' => env('RABBITMQ_HOST', '127.0.0.1'),
+//            'port' => env('RABBITMQ_PORT', 5672),
+//            'user' => env('RABBITMQ_USER', 'guest'),
+//            'password' => env('RABBITMQ_PASSWORD', 'guest'),
+//            'vhost' => env('RABBITMQ_VHOST', '/'),
+//        ],
+
+        'rabbitmq' => [
+            'driver' => 'rabbitmq',
+    //        'factory_class' => \App\Services\CustomRabbitQueue::class,
+            'queue' => env('RABBITMQ_QUEUE', 'default'),
+            'hosts' => [
+                [
+                    'host' => env('RABBITMQ_HOST', '127.0.0.1'),
+                    'port' => env('RABBITMQ_PORT', 5672),
+                    'user' => env('RABBITMQ_USER', 'guest'),
+                    'password' => env('RABBITMQ_PASSWORD', 'guest'),
+                    'vhost' => env('RABBITMQ_VHOST', '/'),
+                ],
+                // Можно добавить несколько хостов для отказоустойчивости
+            ],
+            'options' => [
+                'ssl_options' => [
+                    'cafile' => env('RABBITMQ_SSL_CAFILE', null),
+                    'local_cert' => env('RABBITMQ_SSL_LOCALCERT', null),
+                    'local_key' => env('RABBITMQ_SSL_LOCALKEY', null),
+                    'verify_peer' => env('RABBITMQ_SSL_VERIFY_PEER', true),
+                    'passphrase' => env('RABBITMQ_SSL_PASSPHRASE', null),
+                ],
+                'connection_name' => null,
+//                'connection' => \PhpAmqpLib\Connection\AMQPLazyConnection::class,
+            ],
+            'workers' => env('RABBITMQ_WORKERS', 1),  // Количество воркеров
+            'sleep_on_error' => env('RABBITMQ_ERROR_SLEEP', 5),  // Пауза при ошибке
+        ],
+
     ],
 
     /*
@@ -120,15 +158,6 @@ return [
         'driver' => env('QUEUE_FAILED_DRIVER', 'database-uuids'),
         'database' => env('DB_CONNECTION', 'sqlite'),
         'table' => 'failed_jobs',
-    ],
-
-    'rabbitmq' => [
-        'driver' => 'rabbitmq',
-        'host' => env('RABBITMQ_HOST', '127.0.0.1'),
-        'port' => env('RABBITMQ_PORT', 5672),
-        'user' => env('RABBITMQ_USER', 'guest'),
-        'password' => env('RABBITMQ_PASSWORD', 'guest'),
-        'vhost' => env('RABBITMQ_VHOST', '/'),
     ],
 
 ];

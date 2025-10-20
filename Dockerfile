@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.3-fpm
 
 # Установка зависимостей
 RUN apt-get update && apt-get install -y \
@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     unzip
 
 # Установка расширений PHP
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd sockets
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd sockets xml iconv simplexml
 
 # Установка расширения redis
 RUN pecl install redis && docker-php-ext-enable redis
@@ -26,11 +26,13 @@ WORKDIR /var/www
 COPY . .
 
 # Установка зависимостей Composer
-RUN composer install
+RUN composer install --ignore-platform-req=ext-zip
 
 # Права на папки
-#RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 RUN chown -R www-data:www-data /var/www/bootstrap/cache
 RUN chmod -R 777 /var/www/storage
+
+# Папка для логов laravel_cron
+RUN chmod -R 777 /var/www/storage/app/uploads
 
 CMD php-fpm

@@ -70,22 +70,6 @@ services:
     networks:
       - laravel-network
 
-#  cron:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    container_name: laravel_cron
-#    restart: unless-stopped
-#    volumes:
-#      - .:/var/www
-#    command: >
-#      sh -c "echo '* * * * * php /var/www/artisan schedule:run >> /var/www/storage/logs/cron.log 2>&1' > /etc/cron.d/laravel-cron &&
-#            cron && tail -f /var/www/storage/logs/cron.log"
-#    networks:
-#      - laravel-network
-#    depends_on:
-#      - app
-
   queue:
     build:
       context: .
@@ -101,6 +85,22 @@ services:
       - rabbitmq
       - app
       - redis
+
+  echo:
+    image: node:16
+    container_name: laravel_echo
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+    command: laravel-echo-server start
+    networks:
+      - laravel-network
+    depends_on:
+      - redis
+      - app
+    ports:
+      - "6001:6001"
 
 networks:
   laravel-network:

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7263bfe39506e500ab016b8f77d8397d",
+    "content-hash": "96c6b963c97d2dfc0fcd0eda9f7f16b3",
     "packages": [
         {
             "name": "brick/math",
@@ -65,6 +65,53 @@
                 }
             ],
             "time": "2025-08-29T12:40:03+00:00"
+        },
+        {
+            "name": "buuum/zip",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/buuum/Zip.git",
+                "reference": "0e8e64097f8fbf4d0ce185c6d878fc74998987e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/buuum/Zip/zipball/0e8e64097f8fbf4d0ce185c6d878fc74998987e9",
+                "reference": "0e8e64097f8fbf4d0ce185c6d878fc74998987e9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Buuum\\Zip\\": "src/Zip"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alfons Martinez",
+                    "email": "alfonsmartinezparra@gmail.com"
+                }
+            ],
+            "description": "Library for PHP ZipArchive functions",
+            "homepage": "https://github.com/buuum/Zip",
+            "keywords": [
+                "ftp"
+            ],
+            "support": {
+                "issues": "https://github.com/buuum/Zip/issues",
+                "source": "https://github.com/buuum/Zip/tree/v1.0.0"
+            },
+            "time": "2016-07-06T09:35:12+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -3585,6 +3632,60 @@
                 "source": "https://github.com/ramsey/uuid/tree/4.9.1"
             },
             "time": "2025-09-04T20:59:21+00:00"
+        },
+        {
+            "name": "shuchkin/simplexlsx",
+            "version": "1.1.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shuchkin/simplexlsx.git",
+                "reference": "00006719a4d5df6426fa86c6586a5804941e8c38"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shuchkin/simplexlsx/zipball/00006719a4d5df6426fa86c6586a5804941e8c38",
+                "reference": "00006719a4d5df6426fa86c6586a5804941e8c38",
+                "shasum": ""
+            },
+            "require": {
+                "ext-libxml": "*",
+                "ext-mbstring": "*",
+                "ext-simplexml": "*",
+                "ext-zlib": "*",
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/SimpleXLSX.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Shuchkin (SMSPILOT)",
+                    "email": "sergey.shuchkin@gmail.com",
+                    "homepage": "https://github.com/shuchkin"
+                }
+            ],
+            "description": "Parse and retrieve data from Excel XLSx files. MS Excel 2007 workbooks PHP reader.",
+            "homepage": "https://github.com/shuchkin/simplexlsx",
+            "keywords": [
+                "backend",
+                "excel",
+                "parser",
+                "php",
+                "reader",
+                "xlsx"
+            ],
+            "support": {
+                "issues": "https://github.com/shuchkin/simplexlsx/issues",
+                "source": "https://github.com/shuchkin/simplexlsx/tree/1.1.14"
+            },
+            "time": "2025-05-21T14:34:33+00:00"
         },
         {
             "name": "symfony/clock",
