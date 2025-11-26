@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Row;
 use Illuminate\Http\Request;
-use App\Http\Controllers\RowsImport;
+use App\Imports\RowsImport;
 use Illuminate\Queue\QueueManager;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;

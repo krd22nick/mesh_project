@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Imports;
 
 use App\Jobs\ProcessExcelChunk;
 use Illuminate\Support\Facades\Cache;
